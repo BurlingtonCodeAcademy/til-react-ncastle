@@ -1,7 +1,7 @@
 import React from 'react';
-
 import './App.css';
 import AllFacts from './AllFacts';
+import OneFact from './OneFact'
 
 class App extends React.Component {
 
@@ -12,6 +12,7 @@ class App extends React.Component {
       currentFact: null
     }
     this.getFacts = this.getFacts.bind(this);
+    this.getFact = this.getFact.bind(this);
   }
 
   async getFacts() {
@@ -24,6 +25,16 @@ class App extends React.Component {
       facts: result
     });
     console.log(this.state.facts[0]);
+  }
+
+  async getFact(path) {
+    console.log('fetching a fact at path: ', path);
+    const response = await fetch(path);
+    const result = await response.json();
+    console.log({result});
+    this.setState({
+      currentFact: result
+    });
   }
 
   render() {
@@ -45,6 +56,16 @@ class App extends React.Component {
       return(
         <div>
           <AllFacts allFacts={this.state.facts} getFacts={this.getFacts}/>
+        </div>
+      );
+    } else {
+      const pathId = path.split('/').slice(-1)[0];
+      console.log({pathId});
+      return(
+        <div>
+          <h1>We're looking at a fact!</h1>
+          <OneFact getFact={this.getFact} path={path}
+                   theFact={this.state.currentFact} />
         </div>
       );
     }

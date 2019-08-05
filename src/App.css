@@ -32,7 +32,7 @@
   }
 }
 
-ul {
+.Facts ul {
   list-style-type: none;
   width: 60%;
   padding: 0;
@@ -40,26 +40,27 @@ ul {
   text-align: left;
 }
 
-span {
+.Facts span {
   font-size: 1.4rem;
   font-weight: bold;
   margin-right: 25px;
   text-align: right;
 }
 
-li:nth-child(2) {
+.Facts li:nth-child(2) {
   border-bottom: 2px dashed #888;
   margin-bottom: 50px;
   background-color: tan;
 }
 
-img {
+.Facts img {
   height: 75px;
   width: 75px;
   padding: 0;
-  /* position: absolute;
-  right: 0;
-  top: 0; */
+}
+
+.Facts h1 {
+  text-align: center;
 }
 
 /* @media screen and (min-width: 720px){

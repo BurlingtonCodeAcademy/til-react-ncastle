@@ -10,7 +10,7 @@ class AllFacts extends React.Component {
   render() {
     console.log("All Facts: ", this.props.allFacts);
     return(
-      <div className="App">
+      <div className="Facts">
         <h1>Hey we're in the Facts path! <img src={logo} alt="React Logo"></img></h1>
         
         {/* <p>{this.props.facts.map(fact => <li key={fact.id}>{fact.text}</li>)}</p> */}
